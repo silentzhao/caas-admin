@@ -1,22 +1,21 @@
 package com.caas.pipeline.spi;
 
 /**
- * Produces items for a pipeline in a pull-based manner.
+ * 以拉取模式为流水线提供数据。
  * <p>
- * Returning {@code null} signals that no more items are available.
- * Implementations should be lightweight and stateless where possible, or
- * encapsulate their own lifecycle externally.
+ * 返回 {@code null} 表示数据已耗尽。
+ * 实现应尽量轻量、无状态，或将生命周期管理封装在外部。
  *
- * @param <T> item type produced by the source
+ * @param <T> Source 产生的数据类型
  */
 @FunctionalInterface
 public interface Source<T> {
 
     /**
-     * Retrieves the next item from the source.
+     * 获取下一个数据项。
      *
-     * @return next item, or {@code null} when the source is exhausted
-     * @throws Exception if the source cannot provide the next item
+     * @return 下一个数据项；若已耗尽则返回 {@code null}
+     * @throws Exception 无法提供下一项时抛出
      */
     T next() throws Exception;
 }

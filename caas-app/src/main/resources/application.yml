@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: caas-admin
+
+server:
+  port: ${SERVER_PORT:8080}
+
+# Example placeholders; replace with real values when wiring integrations.
+caas:
+  llm:
+    provider: ${CAAS_LLM_PROVIDER:}
+    api-key: ${CAAS_LLM_API_KEY:}
+  storage:
+    url: ${CAAS_STORAGE_URL:}
+    username: ${CAAS_STORAGE_USERNAME:}
+    password: ${CAAS_STORAGE_PASSWORD:}
